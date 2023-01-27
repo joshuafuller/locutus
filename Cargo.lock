@@ -852,6 +852,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "3ee2393c4a91429dffb4bedf19f4d6abf27d8a732c8ce4980305d782e5426d57"
 
 [[package]]
+name = "derivative"
+version = "2.2.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "fcc3dd5e9e9c0b295d6e1e4d811fb6f157d5ffd784b8d202fc62eac8035a770b"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
 name = "derive_arbitrary"
 version = "1.1.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -1503,6 +1514,12 @@ dependencies = [
  "wasm-bindgen",
  "winapi",
 ]
+
+[[package]]
+name = "id-arena"
+version = "2.2.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "25a2bc672d1148e28034f176e01fffebb08b35768468cc954630da77a1449005"
 
 [[package]]
 name = "ident_case"
@@ -2192,7 +2209,7 @@ dependencies = [
  "tokio",
  "tracing",
  "walkdir",
- "wasmer",
+ "wasmer 2.3.0",
  "wasmer-compiler-llvm",
  "wasmer-wasi",
 ]
@@ -2214,7 +2231,7 @@ dependencies = [
  "serde_with",
  "tar",
  "thiserror",
- "wasmer",
+ "wasmer 2.3.0",
  "wasmer-wasi",
  "xz2",
 ]
@@ -3075,6 +3092,17 @@ dependencies = [
 ]
 
 [[package]]
+name = "pulldown-cmark"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ffade02495f22453cd593159ea2f59827aae7f53fa8323f756799b670881dcf8"
+dependencies = [
+ "bitflags",
+ "memchr",
+ "unicase",
+]
+
+[[package]]
 name = "quick-error"
 version = "1.2.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3304,6 +3332,7 @@ checksum = "cec2b3485b07d96ddfd3134767b8a447b45ea4eb91448d0a35180ec0ffd5ed15"
 dependencies = [
  "bytecheck",
  "hashbrown 0.12.3",
+ "indexmap",
  "ptr_meta",
  "rend",
  "rkyv_derive",
@@ -3579,6 +3608,17 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0f747710de3dcd43b88c9168773254e809d8ddbdf9653b84e2554ab219f17860"
 dependencies = [
  "serde_derive",
+]
+
+[[package]]
+name = "serde-wasm-bindgen"
+version = "0.4.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e3b4c031cd0d9014307d82b8abf653c0290fbdaeb4c02d00c63cf52f728628bf"
+dependencies = [
+ "js-sys",
+ "serde",
+ "wasm-bindgen",
 ]
 
 [[package]]
@@ -4794,15 +4834,39 @@ dependencies = [
  "thiserror",
  "wasm-bindgen",
  "wasmer-artifact",
- "wasmer-compiler",
+ "wasmer-compiler 2.3.0",
  "wasmer-compiler-cranelift",
  "wasmer-compiler-llvm",
- "wasmer-derive",
+ "wasmer-derive 2.3.0",
  "wasmer-engine",
  "wasmer-engine-dylib",
  "wasmer-engine-universal",
- "wasmer-types",
- "wasmer-vm",
+ "wasmer-types 2.3.0",
+ "wasmer-vm 2.3.0",
+ "wat",
+ "winapi",
+]
+
+[[package]]
+name = "wasmer"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e36922a5721ec2dbad766fb86ec456b353a3af02c73d996d8db9073093c9086"
+dependencies = [
+ "bytes",
+ "cfg-if 1.0.0",
+ "indexmap",
+ "js-sys",
+ "more-asserts",
+ "serde",
+ "serde-wasm-bindgen",
+ "target-lexicon",
+ "thiserror",
+ "wasm-bindgen",
+ "wasmer-compiler 3.0.3",
+ "wasmer-derive 3.0.3",
+ "wasmer-types 3.0.3",
+ "wasmer-vm 3.0.3",
  "wat",
  "winapi",
 ]
@@ -4816,8 +4880,8 @@ dependencies = [
  "enumset",
  "loupe",
  "thiserror",
- "wasmer-compiler",
- "wasmer-types",
+ "wasmer-compiler 2.3.0",
+ "wasmer-types 2.3.0",
 ]
 
 [[package]]
@@ -4834,8 +4898,32 @@ dependencies = [
  "smallvec",
  "target-lexicon",
  "thiserror",
- "wasmer-types",
+ "wasmer-types 2.3.0",
  "wasmparser",
+]
+
+[[package]]
+name = "wasmer-compiler"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "3f3d8f6b4c4fd913cbfa27bee746f817795fc2daf3b93b601411428381155f85"
+dependencies = [
+ "backtrace",
+ "cfg-if 1.0.0",
+ "enum-iterator",
+ "enumset",
+ "lazy_static",
+ "leb128",
+ "memmap2",
+ "more-asserts",
+ "region",
+ "rustc-demangle",
+ "smallvec",
+ "thiserror",
+ "wasmer-types 3.0.3",
+ "wasmer-vm 3.0.3",
+ "wasmparser",
+ "winapi",
 ]
 
 [[package]]
@@ -4854,8 +4942,8 @@ dependencies = [
  "smallvec",
  "target-lexicon",
  "tracing",
- "wasmer-compiler",
- "wasmer-types",
+ "wasmer-compiler 2.3.0",
+ "wasmer-types 2.3.0",
 ]
 
 [[package]]
@@ -4878,9 +4966,9 @@ dependencies = [
  "semver 1.0.13",
  "smallvec",
  "target-lexicon",
- "wasmer-compiler",
- "wasmer-types",
- "wasmer-vm",
+ "wasmer-compiler 2.3.0",
+ "wasmer-types 2.3.0",
+ "wasmer-vm 2.3.0",
 ]
 
 [[package]]
@@ -4888,6 +4976,18 @@ name = "wasmer-derive"
 version = "2.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "00e50405cc2a2f74ff574584710a5f2c1d5c93744acce2ca0866084739284b51"
+dependencies = [
+ "proc-macro-error",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "wasmer-derive"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "49eba15d9a5944e95516703d6183e1b88de0783bf737b74c8de96c217e26bfcf"
 dependencies = [
  "proc-macro-error",
  "proc-macro2",
@@ -4913,9 +5013,9 @@ dependencies = [
  "target-lexicon",
  "thiserror",
  "wasmer-artifact",
- "wasmer-compiler",
- "wasmer-types",
- "wasmer-vm",
+ "wasmer-compiler 2.3.0",
+ "wasmer-types 2.3.0",
+ "wasmer-vm 2.3.0",
 ]
 
 [[package]]
@@ -4936,11 +5036,11 @@ dependencies = [
  "tempfile",
  "tracing",
  "wasmer-artifact",
- "wasmer-compiler",
+ "wasmer-compiler 2.3.0",
  "wasmer-engine",
  "wasmer-object",
- "wasmer-types",
- "wasmer-vm",
+ "wasmer-types 2.3.0",
+ "wasmer-vm 2.3.0",
  "which",
 ]
 
@@ -4956,11 +5056,11 @@ dependencies = [
  "loupe",
  "region",
  "rkyv",
- "wasmer-compiler",
+ "wasmer-compiler 2.3.0",
  "wasmer-engine",
  "wasmer-engine-universal-artifact",
- "wasmer-types",
- "wasmer-vm",
+ "wasmer-types 2.3.0",
+ "wasmer-vm 2.3.0",
  "winapi",
 ]
 
@@ -4976,8 +5076,8 @@ dependencies = [
  "rkyv",
  "thiserror",
  "wasmer-artifact",
- "wasmer-compiler",
- "wasmer-types",
+ "wasmer-compiler 2.3.0",
+ "wasmer-types 2.3.0",
 ]
 
 [[package]]
@@ -4988,8 +5088,8 @@ checksum = "8d831335ff3a44ecf451303f6f891175c642488036b92ceceb24ac8623a8fa8b"
 dependencies = [
  "object 0.28.4",
  "thiserror",
- "wasmer-compiler",
- "wasmer-types",
+ "wasmer-compiler 2.3.0",
+ "wasmer-types 2.3.0",
 ]
 
 [[package]]
@@ -5009,10 +5109,35 @@ dependencies = [
 ]
 
 [[package]]
-name = "wasmer-vfs"
-version = "2.3.0"
+name = "wasmer-types"
+version = "3.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9302eae3edc53cb540c2d681e7f16d8274918c1ce207591f04fed351649e97c0"
+checksum = "5dbc8729da3607f6102af5d2cdd179c0320084f9a46cf522f5a458f32fd9fb8c"
+dependencies = [
+ "enum-iterator",
+ "enumset",
+ "indexmap",
+ "more-asserts",
+ "rkyv",
+ "target-lexicon",
+ "thiserror",
+]
+
+[[package]]
+name = "wasmer-vbus"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d8b68bbf6519626611c1ceca090af7854fd3582b482db2d83e960ed338181bc0"
+dependencies = [
+ "thiserror",
+ "wasmer-vfs",
+]
+
+[[package]]
+name = "wasmer-vfs"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a4d7827a36a5bc54b4369243249f4134da5a7bb9860949922a36e55aa29d0497"
 dependencies = [
  "libc",
  "thiserror",
@@ -5043,38 +5168,163 @@ dependencies = [
  "serde",
  "thiserror",
  "wasmer-artifact",
- "wasmer-types",
+ "wasmer-types 2.3.0",
  "winapi",
 ]
 
 [[package]]
-name = "wasmer-wasi"
-version = "2.3.0"
+name = "wasmer-vm"
+version = "3.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "fadbe31e3c1b6f3e398ad172b169152ae1a743ae6efd5f9ffb34019983319d99"
+checksum = "aa3817fc57060c6e64f892b060f6bfd050df41560d3ba8da833ca144abb55080"
 dependencies = [
+ "backtrace",
+ "cc",
  "cfg-if 1.0.0",
+ "corosensei",
+ "enum-iterator",
+ "indexmap",
+ "lazy_static",
+ "libc",
+ "mach",
+ "memoffset",
+ "more-asserts",
+ "region",
+ "scopeguard",
+ "thiserror",
+ "wasmer-types 3.0.3",
+ "winapi",
+]
+
+[[package]]
+name = "wasmer-vnet"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bb66854c72d7e5d91e5fb1c660f5b0283470b2dc80d0bb670ac1501a7ab06f4e"
+dependencies = [
+ "bytes",
+ "thiserror",
+ "wasmer-vfs",
+]
+
+[[package]]
+name = "wasmer-wasi"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a4ec98f5b70e1a9b93c322a7e8a420c3021997e1f3d9c631be110f4870183081"
+dependencies = [
+ "bytes",
+ "cfg-if 1.0.0",
+ "derivative",
  "generational-arena",
  "getrandom 0.2.7",
  "libc",
  "thiserror",
  "tracing",
  "wasm-bindgen",
- "wasmer",
+ "wasmer 3.0.3",
+ "wasmer-vbus",
  "wasmer-vfs",
+ "wasmer-vnet",
+ "wasmer-wasi-local-networking",
  "wasmer-wasi-types",
  "winapi",
 ]
 
 [[package]]
-name = "wasmer-wasi-types"
-version = "2.3.0"
+name = "wasmer-wasi-local-networking"
+version = "3.0.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "22dc83aadbdf97388de3211cb6f105374f245a3cf2a5c65a16776e7a087a8468"
+checksum = "c46920cf87255c1bfafcf2b497fb8e41f95c628b8b96287ed36dacc634f81c29"
+dependencies = [
+ "bytes",
+ "tracing",
+ "wasmer-vfs",
+ "wasmer-vnet",
+]
+
+[[package]]
+name = "wasmer-wasi-types"
+version = "3.0.3"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "aa3165b4ef46753a09abfb697a1396d2e22c0922cdee3c6f4598773702f9614b"
 dependencies = [
  "byteorder",
  "time 0.2.27",
- "wasmer-types",
+ "wasmer 3.0.3",
+ "wasmer-derive 3.0.3",
+ "wasmer-types 3.0.3",
+ "wasmer-wit-bindgen-gen-core",
+ "wasmer-wit-bindgen-gen-rust-wasm",
+ "wasmer-wit-bindgen-rust",
+ "wasmer-wit-parser",
+]
+
+[[package]]
+name = "wasmer-wit-bindgen-gen-core"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "ff8aa5be5ae5d61f5e151dc2c0e603093fe28395d2083b65ef7a3547844054fe"
+dependencies = [
+ "anyhow",
+ "wasmer-wit-parser",
+]
+
+[[package]]
+name = "wasmer-wit-bindgen-gen-rust"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "438bce7c4589842bf100cc9b312443a9b5fc6440e58ab0b8c114e460219c3c3b"
+dependencies = [
+ "heck 0.3.3",
+ "wasmer-wit-bindgen-gen-core",
+]
+
+[[package]]
+name = "wasmer-wit-bindgen-gen-rust-wasm"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "505f5168cfee591840e13e158a5c5e2f95d6df1df710839021564f36bee7bafc"
+dependencies = [
+ "heck 0.3.3",
+ "wasmer-wit-bindgen-gen-core",
+ "wasmer-wit-bindgen-gen-rust",
+]
+
+[[package]]
+name = "wasmer-wit-bindgen-rust"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "968747f1271f74aab9b70d9c5d4921db9bd13b4ec3ba5506506e6e7dc58c918c"
+dependencies = [
+ "async-trait",
+ "bitflags",
+ "wasmer-wit-bindgen-rust-impl",
+]
+
+[[package]]
+name = "wasmer-wit-bindgen-rust-impl"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bd26fe00d08bd2119870b017d13413dfbd51e7750b6634d649fc7a7bbc057b85"
+dependencies = [
+ "proc-macro2",
+ "syn",
+ "wasmer-wit-bindgen-gen-core",
+ "wasmer-wit-bindgen-gen-rust-wasm",
+]
+
+[[package]]
+name = "wasmer-wit-parser"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "f46c9a15086be8a2eb3790613902b9d3a9a687833b17cd021de263a20378585a"
+dependencies = [
+ "anyhow",
+ "id-arena",
+ "pulldown-cmark",
+ "unicode-normalization",
+ "unicode-xid",
 ]
 
 [[package]]
