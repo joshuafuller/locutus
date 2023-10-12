@@ -11,7 +11,7 @@ repository = "https://github.com/freenet/locutus"
 [dependencies]
 anyhow = "1"
 arbitrary = { version = "1", features = ["derive"], optional = true}
-asynchronous-codec = "0.6"
+asynchronous-codec = "0.7"
 async-trait = "0.1"
 bincode = "1"
 blake2 = { version =  "0.10", features = [ "std" ] }
