@@ -211,6 +211,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "atomic"
+version = "0.6.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "8d818003e740b63afc82337e3160717f4f63078720a810b7b903e70a5d1d2994"
+dependencies = [
+ "bytemuck",
+]
+
+[[package]]
+name = "atomic-waker"
+version = "1.1.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "1505bd5d3d116872e7271a6d4e16d81d0c8570876c8de68093a09ac269d8aac0"
+
+[[package]]
 name = "atty"
 version = "0.2.14"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -375,6 +390,12 @@ dependencies = [
  "quote",
  "syn",
 ]
+
+[[package]]
+name = "bytemuck"
+version = "1.14.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "374d28ec25809ee0e23827c2ab573d729e293f281dfe393500e7ad618baa61c6"
 
 [[package]]
 name = "byteorder"
@@ -1432,8 +1453,10 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "c05aeb6a22b8f62540c194aac980f2115af067bfe15a0734d7277a768d396b31"
 dependencies = [
  "cfg-if 1.0.0",
+ "js-sys",
  "libc",
  "wasi 0.11.0+wasi-snapshot-preview1",
+ "wasm-bindgen",
 ]
 
 [[package]]
@@ -1939,7 +1962,7 @@ version = "0.42.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0f592f1b06f12a5686a5de7be9f289a161c96d5f89f12b04b7d14cf3d61d7381"
 dependencies = [
- "atomic",
+ "atomic 0.5.1",
  "bytes",
  "futures",
  "futures-timer",
@@ -4295,19 +4318,21 @@ checksum = "213701ba3370744dcd1a12960caa4843b3d68b4d1c0a5d575e0d65b2ee9d16c0"
 
 [[package]]
 name = "stretto"
-version = "0.7.1"
+version = "0.8.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "e84bcc3af74e733dcd0382baa7deec3fadee09cc89089d1f0350068f31df39bb"
+checksum = "51481a2abc8af47b7447b39b221ce806728e1dcbbb1354b0d5bacb1e5e1f72de"
 dependencies = [
  "async-channel",
  "async-io",
- "atomic",
+ "atomic 0.6.0",
  "crossbeam-channel",
  "futures",
+ "getrandom 0.2.8",
  "parking_lot 0.12.1",
  "rand 0.8.5",
  "seahash",
  "thiserror",
+ "tracing",
  "wg",
  "xxhash-rust",
 ]
@@ -4751,16 +4776,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "triomphe"
-version = "0.1.8"
-source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "f1ee9bd9239c339d714d657fac840c6d2a4f9c45f4f9ec7b0975113458be78db"
-dependencies = [
- "serde",
- "stable_deref_trait",
-]
-
-[[package]]
 name = "trust-dns-proto"
 version = "0.20.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -4985,7 +5000,7 @@ version = "1.3.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1674845326ee10d37ca60470760d4288a6f80f304007d92e5c53bab78c9cfd79"
 dependencies = [
- "atomic",
+ "atomic 0.5.1",
  "getrandom 0.2.8",
  "serde",
 ]
@@ -5524,12 +5539,11 @@ dependencies = [
 
 [[package]]
 name = "wg"
-version = "0.3.1"
+version = "0.4.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cc4a87eca0e149703202bc625506b908d94f620dfbfbad7aac3402b2868f0043"
+checksum = "232b936590098c53587078a25ed087d5cd3aa18ec65c85bb42c6ae335263e15b"
 dependencies = [
- "parking_lot 0.12.1",
- "triomphe",
+ "atomic-waker",
 ]
 
 [[package]]
