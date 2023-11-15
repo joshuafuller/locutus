@@ -66,7 +66,7 @@ locutus-runtime = { path = "../locutus-runtime", version = "0.0.3" }
 [dev-dependencies]
 tracing = "0.1"
 arbitrary = { version = "1", features = ["derive"] }
-itertools = "0.10"
+itertools = "0.12"
 pico-args = "0.5"
 locutus-runtime = { path = "../locutus-runtime", features = ["testing"] }
 locutus-stdlib = { path = "../locutus-stdlib", features = ["testing", "net"] }
