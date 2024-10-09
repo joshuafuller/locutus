@@ -295,6 +295,9 @@ pub(crate) trait InnerMessage: Into<NetMessage> {
     fn requested_location(&self) -> Option<Location>;
 }
 
+type RemainingChecks = Option<usize>;
+type ConnectResult = Result<(PeerId, RemainingChecks), ()>;
+
 /// Internal node events emitted to the event loop.
 #[derive(Debug, Clone)]
 pub(crate) enum NodeEvent {
@@ -303,7 +306,9 @@ pub(crate) enum NodeEvent {
     // Try connecting to the given peer.
     ConnectPeer {
         peer: PeerId,
-        callback: tokio::sync::mpsc::Sender<Result<(), ()>>,
+        tx: Transaction,
+        callback: tokio::sync::mpsc::Sender<ConnectResult>,
+        is_gw: bool,
     },
     Disconnect {
         cause: Option<Cow<'static, str>>,
